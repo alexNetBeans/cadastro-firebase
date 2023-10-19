@@ -1,0 +1,52 @@
+
+
+body{
+    background-color:#82ccdd;
+  }
+
+  .formlogin{
+     margin-top: 15%;
+
+  }
+
+  .imgAvatar{
+    -width: 10px;
+ }
+
+  .avatars:hover{
+
+    cursor: pointer;
+         
+  }
+
+ .avatarsSelected:hover{
+    border: rgb(16, 212, 32) solid 2px;
+ }
+
+
+
+@media (max-width: 574px) {
+    
+    .imgAvatar{
+        width: 70px;
+     }
+    
+}
+
+
+@media (min-width: 768px) {
+
+    .btn-login{
+       width: 200px;    
+       
+    }
+}
+
+
+@media (min-width: 992px) { ... }
+
+
+@media (min-width: 1200px) { ... }
+
+
+@media (min-width: 1400px) { ... }
