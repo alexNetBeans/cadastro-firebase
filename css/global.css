@@ -23,7 +23,27 @@ body{
     border: rgb(16, 212, 32) solid 2px;
  }
 
+.col-menu{
 
+   height: 100vh;
+}
+
+.menu:hover{
+   background-color: #535c68;
+   cursor: pointer;
+
+}
+
+
+.bi-eye-fill{
+   color:grey;
+   font-size: 25px;
+   cursor: pointer;
+}
+
+
+
+/*  Media Queries */
 
 @media (max-width: 574px) {
     
@@ -32,7 +52,6 @@ body{
      }
     
 }
-
 
 @media (min-width: 768px) {
 
