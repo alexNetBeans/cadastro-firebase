@@ -13,12 +13,14 @@
   </head>
   <body>
 
+   <!-- Formulário de login --> 
+
     <div class="container font-weigth-bold formlogin font-monospace">
 
         <div class="row">
 
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4 position-absolute top-50 start-50 translate-middle">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 position-absolute top-50 start-50 translate-middle">
 
         <div class="card p-4 shadow bg-body">
           <form>    
@@ -26,34 +28,47 @@
                   <img src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png" width="100">
               </div>
               
+    <!-- Campo e-mail --> 
+
                 <div class="form-group my-4">
                     <label for="">E-mail:</label>
-                    <input type="email" class="form-control" placeholder="Digite seu e-mail" autofocus>
-                </div>
-                
-                <div class="form-group my-4">
-                    <label for="">Senha:</label>
-                    <input type="password" class="form-control" placeholder="Digite sua senha">
+                    <input type="email" class="form-control" placeholder="Digite seu e-mail" id="email" autofocus>
                 </div>
 
+    <!-- Campo Senha -->             
+
+                <div class="form-group my-4">
+                    <label for="">Senha:</label>
+                    <input type="password" class="form-control" placeholder="Digite sua senha" id="senha">
+                </div>
           </form>
-        
-          <button class="mx-auto btn btn-success fw-bold text-uppercase mt-3 btn-login">entrar</button>
+
+    <!-- Botão logar -->   
+
+          <button class="mx-auto btn btn-success fw-bold text-uppercase mt-3 btn-login" id="btn-Login">entrar</button>
 
           <div class="mt-4">
           <a href="cadastro.html">
               <small>Ainda não sou cadastrado</small>
           </a>   
           </div>   
+      </div>
+    
+      </div>
+          <div class="col-md-4"></div>
+      </div>
+      
+      <!-- Mensagem ao usuário   -->
+
+      <div class="col-md-12 container fixed-bottom">
+        <div class="row">
+            <div id="msg" class="text-uppercase text-center font-weght-bold"></div>
+        </div>
 
       </div>
-            
-        </div>
-        <div class="col-sm-4"></div>
-        </div>
-        
-        </div>
-    
+
+      </div>
+
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> 
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
@@ -64,6 +79,7 @@
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
     <script defer src="js/crud/firebase-init.js"></script>
+    <script defer src="js/login.js"></script>
     
   </body>
 </html>
