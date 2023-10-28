@@ -3,19 +3,18 @@
 
 function insertData( data )
 {
-    
     firebase.database().ref('gastos-db').child('cliente')
     .push( data )
-    .then ((s)=>
+    .then (( s )=>
     {
         window.location = 'cadConcluido.html';
 
-    }, (error) => {
-        if (error) {
-            showMsg('erro');
+    }, ( error ) => {
+        if ( error ) {
+            showMsg( 'erro' );
         } else {
         // Data saved successfully!
-        showMsg('success');
+        showMsg( 'success' );
         }
     }).key   
 }

@@ -1,4 +1,15 @@
 
+
+function getidUser(){
+    
+    let idUser = sessionStorage.getItem("id");
+    return idUser;
+}
+
+
+
+
+
 // Finaliza Sessão
 
 function logout(){
