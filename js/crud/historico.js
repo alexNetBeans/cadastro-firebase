@@ -19,7 +19,9 @@ function getHistoricbyDay ( idUser, ano, mes ){
             
             snapshot.forEach(( data )=>{
                 
-                let line = '<tr><td>' + data.val().data +'<td>' + data.val().descrição + '<td>' + data.val().valor + '<td> <i class="bi bi-eye-fill"></i>';
+                let valueinReal = data.val().valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+                let line = '<tr><td>' + data.val().data +'<td>' + data.val().descrição + '<td>' + valueinReal + '<td> <i class="bi bi-eye-fill"></i>';
+                
                 $('#tabela').append( line );
                 
                 console.log( data );
@@ -92,7 +94,6 @@ function getHistoricFromMonth ( idUser, ano ){
     $('#backIcon').addClass(' bi bi-box-arrow-in-left fs-4 ');
 
 }
-
 
 // link visualizar histórico.
 

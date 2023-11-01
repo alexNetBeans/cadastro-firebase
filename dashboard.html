@@ -18,7 +18,7 @@
 
         <div class="row">
 
-            <div class="col-sm-3 bg-dark col-menu text-light m-0 p-0">
+            <div class="col-md-3 d-none d-sm-block bg-dark col-menu text-light m-0 p-0">
                 <div class="bg-secondary fs-5 text-uppercase mb-4 p-2"> dashboard </div>
 
                 <div class="p-2">
@@ -30,7 +30,8 @@
                         <hr>
 
                         <div class="menu p-1">
-                                <a href="" class="text-white text-decoration-none menu"> Adicionar   </a>
+                                <a href="#" class="text-white text-decoration-none menu" onclick="$('#modalGastos').modal('show')
+                                "> Adicionar   </a>
                         </div>
                         <hr>
 
@@ -47,14 +48,42 @@
 
             </div>
             
-            <div class="col-sm-9 bg-light m-0 p-0">  
+            <div class="col-md-9 col-xs-12 bg-light m-0 p-0 col-menu">  
                 <div class="bg-dark fs-5 text-light p-2 text-uppercase text-center">
                     controle de gastos
                 </div>
 
-                <div class="container p-4">
-                        <!-- <div class="alert alert-info"> Faça adição no menu </div> -->
-                        
+                <div class="container p-4"> 
+                 
+        <!-- NavBar -->
+        
+                <div class="row d-block d-sm-none">
+                    <div class="col-sm-12">
+            
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
+                        <div class="container-fluid">
+                        <a class="navbar-brand" href="#">CG</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav text-uppercase">
+            
+                            <a class="nav-link" aria-current="page" href="#">Perfil</a>
+                            <a class="nav-link" href="#" onclick="$('#modalGastos').modal('show')"> Adicionar </a>
+                            <a class="nav-link" href="#" onclick="getHistoricFull ( getidUser() )"> Histórico </a>
+                            <a class="nav-link" href="#" onclick=" logout()"> Sair </a>
+                            
+                            </div>
+                        </div>
+                        </div>
+                    </nav>
+            
+                        </div>
+                    </div>
+    
+        <!-- NavBar -->   
+                    
                         <div class="alert alert-info my-4 p-2 text-dark bi bi-info-circle-fill mr-4" id="msgTbl">
                         </div>
 
@@ -62,9 +91,10 @@
                         <tr></tr>
                           <tr><td width="80" colspan="3" class="text-center"><img id="avatar"> 
                           <tr><td colspan="3"  class="text-uppercase text-center" id="FullName"></td>
-                          <tr><td>Nome   <td id="name">   <td> Alterar
-                          <tr><td>E-mail <td id="email">  <td> Alterar
-                          <tr><td>Senha  <td> ******      <td> Alterar
+
+                          <tr><td>Nome   <td id="name">   <td> <a href="#"> Alterar </a>
+                          <tr><td>E-mail <td id="email">  <td> <a href="#"> Alterar </a>
+                          <tr><td>Senha  <td> **********  <td> <a href="#"> Alterar </a>
 
                         </table>
                 </div>
@@ -72,15 +102,62 @@
         </div>    
     </div>
      
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    <script defer src="js/crud/firebase-init.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="js/crud/firebase-init.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> 
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-    <script defer src="js/session.js"></script>
-    <script defer src="js/crud/historico.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/crud/historico.js"></script>
+    <script src="js/utils.js"></script>
     
+<!-- Modal Adicionar Gastos -->
+
+<div class="modal fade" id="modalGastos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-uppercase" id="exampleModalLabel"> Adicionar Gasto </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+
+            <div class="form-group">
+                <label for="" class="my-2">Descrição:</label>
+                <input type="text" class="form-control" placeholder="Descrição do gasto" autofocus id="desc">
+            </div>
+
+            <div class="form-group">
+                <label for="" class="my-2">Valor:</label>
+                <input type="text" class="form-control" placeholder="Valor do gasto R$ 50,00" id="val">
+            </div>
+
+            <div class="form-group">
+                <label for="" class="my-2">Detalhes / Informações Complementares:</label>
+                <input type="text" class="form-control" placeholder="Informações Complementares do gasto" id="detal">
+            </div>
+
+          </form>
+
+        </div>
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-danger w-25 mx-auto" data-bs-dismiss="modal"> Cancelar </button>
+          <button type="button" class="btn btn-success w-25 mx-auto" id="btnCost"> Salvar </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/crud/insertcost.js"></script>
+
   </body>
+
+  <script>
+
+        getDataSessionUser();
+
+  </script>
 </html>

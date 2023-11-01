@@ -37,9 +37,6 @@ function getDataSessionUser(){
 
     $('#FullName').addClass('fs-2 text-center');
     $('#FullName').css('vertical-align', 'middle');
-    
-
-
     // $('#senha')
 }
 
