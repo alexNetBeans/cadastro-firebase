@@ -34,6 +34,13 @@ body{
 
 }
 
+table:hover{
+   cursor:pointer;
+}
+
+.bi-eye-fill:hover{
+   color:rgb(16, 212, 32);
+}
 
 .bi-eye-fill{
    color:grey;
@@ -51,6 +58,12 @@ body{
         width: 70px;
      }
     
+     .btn-login{
+        width: 100%;
+        height: 45px;
+
+     }
+
 }
 
 @media (min-width: 768px) {

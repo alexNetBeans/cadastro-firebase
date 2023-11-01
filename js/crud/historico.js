@@ -10,7 +10,7 @@ function getHistoricbyDay ( idUser, ano, mes ){
     const dbRef = firebase.database().ref('gastos-db');
 	dbRef.child("cliente/" + idUser + "/historico/" + ano + '/' + mes ).get().then(( snapshot )=> 
 	{
-            let col = '<tr><td> Data <td> Descrição <td> Valor <td class="text-center"> Detalhes';
+            let col = '<tr><td> Descrição <td> Valor <td class="text-center"> Detalhes';
             $('#tabela').append( '<tbody><tr>' );
             $('#tabela').append( col );
             
@@ -20,12 +20,16 @@ function getHistoricbyDay ( idUser, ano, mes ){
             snapshot.forEach(( data )=>{
                 
                 let valueinReal = data.val().valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-                let line = '<tr><td>' + data.val().data +'<td>' + data.val().descrição + '<td>' + valueinReal + '<td> <i class="bi bi-eye-fill"></i>';
-                
+                // let line = '<tr><td>' + data.val().descrição + '<td>' + valueinReal + '<td class="text-center"> <i class="bi bi-eye-fill"></i>';
+                let line = '<tr><td>' + data.val().descrição + '<td>' + valueinReal + '<td class="detail " id="' + data.key + '">';
+
                 $('#tabela').append( line );
                 
-                console.log( data );
             });
+
+            $('.detail').addClass(' bi bi-eye-fill ');
+            $('.detail').addClass(' text-center ');
+            $('.detail').attr('onClick', 'alert( this.id )');
     });    
         
     // Link de voltar para tabela de anos.
@@ -47,18 +51,22 @@ function getHistoricFull ( idUser ){
 
     $('#backIcon').remove();
     $('#tabela').empty();
-    $('#tabela').append( '<tbody><tr>' );
+    
+    $('#tabela').addClass(' table table-striped ');
+    let tBody = $('#tabela').append( '<tbody>');
+    tBody.append('<tr>');
         
     const dbRef = firebase.database().ref('gastos-db');
 	dbRef.child("cliente/" + idUser + "/historico/").get().then(( snapshot )=> 
 	{
-            // console.log( snapshot.val() );
-        
-            snapshot.forEach(( data )=>{
+        snapshot.forEach(( data )=>{
                 
-                $('#tabela').append( '<tr><td onClick="getHistoricFromMonth ( getidUser(), this.innerText )">' + data.key );
+         $('#tabela').append('<tr><td onClick="getHistoricFromMonth ( getidUser(), this.innerText )">' + data.key );
+          
 
-            });
+          // <td onClick="getHistoricFromMonth ( getidUser(), this.innerText )">' + data.key 
+
+        });
     });    
 }
 
